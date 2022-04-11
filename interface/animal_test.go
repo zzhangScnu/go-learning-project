@@ -14,6 +14,12 @@ func TestAnimal(t *testing.T) {
 	}
 }
 
+func TestNonParameterInitialization(t *testing.T) {
+	oneCat := cat.Cat{}
+	oneCat.SetName("Crookshanks")
+	fmt.Println(oneCat)
+}
+
 func TestSetter(t *testing.T) {
 	catAddr := cat.NewCatAddr("black", 10, 10)
 	catAddr.SetColor("white")
