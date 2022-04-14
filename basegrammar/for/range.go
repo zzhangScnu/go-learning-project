@@ -36,6 +36,7 @@ func RangeStructConcurrently() {
 		{num: 1, name: "a"},
 		{2, "b"},
 	}
+	// 如果arr是作为参数传进goroutine的话，就是一个拷贝，不会有并发问题
 	go func() {
 		arr[1].name = "modified"
 		fmt.Println("modified success")
