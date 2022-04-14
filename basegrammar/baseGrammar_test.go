@@ -3,6 +3,7 @@ package basegrammar
 import (
 	"fmt"
 	_for "github.com/go-learning-project/basegrammar/for"
+	"github.com/go-learning-project/basegrammar/function"
 	_if "github.com/go-learning-project/basegrammar/if"
 	_switch "github.com/go-learning-project/basegrammar/switch"
 	"testing"
@@ -40,5 +41,12 @@ func TestRangeMap(t *testing.T) {
 	for i := 0; i < 5; i++ {
 		_for.RangeMap()
 		fmt.Println("=====================")
+	}
+}
+
+func TestFunc(t *testing.T) {
+	r := function.Calculate(1, 2, 3, 4)
+	if r != 0 {
+		t.Errorf("wrong result: %d", r)
 	}
 }
