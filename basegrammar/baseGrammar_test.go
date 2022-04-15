@@ -50,3 +50,7 @@ func TestFunc(t *testing.T) {
 		t.Errorf("wrong result: %d", r)
 	}
 }
+
+func TestInitialize(t *testing.T) {
+	function.Show()
+}
