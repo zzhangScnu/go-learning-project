@@ -35,7 +35,8 @@ func assignHandler() {
 }
 
 func startupServer() {
-	//err := http.ListenAndServe(server.Addr, nil)
+	// err := http.ListenAndServe(server.Addr, nil)
+	// server.Handler = mux / myHandler
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Fatal("server startup failed")
