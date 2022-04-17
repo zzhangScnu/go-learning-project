@@ -21,8 +21,12 @@ func main() {
 Loop:
 	for {
 		select {
+		// 随机选取一个满足条件的分支
 		case i := <-intChan:
 			fmt.Println("received num: ", i)
+		case i := <-intChan:
+			fmt.Println("received num: ", i)
+		// 如果case后面有表达式或函数，会执行
 		case err := <-errChan:
 			fmt.Println(err.Error())
 			break Loop

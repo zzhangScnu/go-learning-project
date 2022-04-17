@@ -21,7 +21,10 @@ func main() {
 	producer(c, d)
 }
 
-func producer(c chan int, d chan bool) {
+// c chan int也能正常执行
+// 但是 <- 提供了更加严格的语义上的约束：表示该通道作为方法参数，只能生产，不能用作接收
+// 这种用法也可以用在方法 / 函数的返回值上
+func producer(c chan<- int, d chan<- bool) {
 	for i := 0; i < 100; i++ {
 		if i%10 == 0 {
 			time.Sleep(time.Second * 10)
@@ -31,10 +34,11 @@ func producer(c chan int, d chan bool) {
 	d <- true
 }
 
-func consumer(c chan int, d chan bool) {
+func consumer(c <-chan int, d <-chan bool) {
 	timer := time.NewTicker(tickTime)
 	defer timer.Stop()
 	buf := make([]int, 0, 5)
+	// 如果不把select套在for里面，容易出现select执行完了，channel才接收到值，导致死锁
 	for {
 		select {
 		case data := <-c:
@@ -52,6 +56,7 @@ func consumer(c chan int, d chan bool) {
 		case <-d:
 			fmt.Println("job done...")
 			return
+			//default: 用于处理阻塞时的情况
 		}
 	}
 }
