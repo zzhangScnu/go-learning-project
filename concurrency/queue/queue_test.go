@@ -24,3 +24,7 @@ func runTest(t *testing.T, f func(int, int) []int) {
 func TestProcessMethod1ByWaitGroup(t *testing.T) {
 	runTest(t, ProcessMethod1ByWaitGroup)
 }
+
+func TestMethod2(t *testing.T) {
+	runTest(t, ProcessMethod2)
+}
