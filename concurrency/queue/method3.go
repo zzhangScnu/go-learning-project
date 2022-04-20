@@ -27,8 +27,9 @@ func produce(jobCount int, queueChan chan int) {
 func transfer(concurrency int, valChan chan<- int, queueChan <-chan int, wg *sync.WaitGroup) {
 	for i := 0; i < concurrency; i++ {
 		go func() {
-			defer wg.Done()
+			// defer wg.Done()
 			for val := range queueChan {
+				defer wg.Done()
 				time.Sleep(time.Millisecond * time.Duration(rand.Int31n(1000)))
 				valChan <- val
 			}
