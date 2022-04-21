@@ -1,5 +1,7 @@
 package generic
 
+import "errors"
+
 func AsParam[T int | float64](i T, j T) T {
 	return i + j
 }
@@ -18,4 +20,18 @@ func AsArray[T numType](nums []T) T {
 		result = result + val
 	}
 	return result
+}
+
+func IndexOf[T comparable](candidates []T, target T) (error, int) {
+	for i, val := range candidates {
+		if val == target {
+			return nil, i
+		}
+	}
+	return errors.New("cannot find target"), -1
+}
+
+func Slice[T any](nums []T) ([]T, []T) {
+	mid := len(nums) / 2
+	return nums[:mid], nums[mid:]
 }
