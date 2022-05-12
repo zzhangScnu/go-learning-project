@@ -54,3 +54,7 @@ func TestFunc(t *testing.T) {
 func TestInitialize(t *testing.T) {
 	function.Show()
 }
+
+func Test111(t *testing.T) {
+	_for.RangeAndChange()
+}
