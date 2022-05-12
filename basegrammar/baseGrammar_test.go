@@ -5,6 +5,7 @@ import (
 	_for "github.com/go-learning-project/basegrammar/for"
 	"github.com/go-learning-project/basegrammar/function"
 	_if "github.com/go-learning-project/basegrammar/if"
+	string2 "github.com/go-learning-project/basegrammar/string"
 	_switch "github.com/go-learning-project/basegrammar/switch"
 	"testing"
 )
@@ -55,6 +56,28 @@ func TestInitialize(t *testing.T) {
 	function.Show()
 }
 
-func Test111(t *testing.T) {
+func TestRangeAndChange(t *testing.T) {
 	_for.RangeAndChange()
+}
+
+func TestNums(t *testing.T) {
+	fmt.Println("run ConvertToIntByForRange...")
+	string2.ConvertToIntByForRange()
+	fmt.Println("run ConvertToIntByForI...")
+	string2.ConvertToIntByForI()
+	fmt.Println("run ConvertToIntByRune...")
+	string2.ConvertToIntByRune()
+}
+
+func TestString(t *testing.T) {
+	fmt.Println("run RangeStringByI...")
+	string2.RangeStringByI()
+	fmt.Println("run RangeString...")
+	string2.RangeString()
+	fmt.Println("run RangeStringRune...")
+	string2.RangeStringRune()
+	fmt.Println("run RangeByte...")
+	string2.RangeByte()
+	fmt.Println("run Compare...")
+	string2.Compare()
 }
