@@ -1,0 +1,57 @@
+CREATE TABLE `t_user`
+(
+    `id`                    bigint(20) NOT NULL AUTO_INCREMENT,
+    `create_time`           datetime              DEFAULT CURRENT_TIMESTAMP,
+    `update_time`           datetime              DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `status`                varchar(8)   NOT NULL DEFAULT 'ENABLE' COMMENT '账号状态，ENABLE,DISABLE',
+    `email`                 varchar(128)          DEFAULT NULL,
+    `name`                  varchar(32)           DEFAULT NULL COMMENT '姓名',
+    `org_id`                bigint(20) DEFAULT NULL,
+    `password`              varchar(64)           DEFAULT NULL,
+    `phone`                 varchar(16)           DEFAULT NULL,
+    `salt`                  varchar(32)           DEFAULT NULL,
+    `last_login_time`       datetime              DEFAULT NULL,
+    `user_status`           varchar(255) NOT NULL COMMENT '用户状态',
+    `company`               varchar(500)          DEFAULT NULL COMMENT '工作单位',
+    `certification_id`      varchar(500)          DEFAULT NULL COMMENT '执业证号码',
+    `certification_name`    varchar(64)           DEFAULT NULL COMMENT '执业证姓名',
+    `birthday`              varchar(20)           DEFAULT NULL COMMENT '出生年月',
+    `work_year`             varchar(20)           DEFAULT NULL COMMENT '从业年份',
+    `certification_pic_url` text COMMENT '执业证照片地址',
+    `mini_apps_open_id`     varchar(255)          DEFAULT NULL COMMENT '小程序的openId',
+    `union_id`              varchar(64)           DEFAULT NULL COMMENT '微信union_id',
+    `sex`                   varchar(32)  NOT NULL DEFAULT 'UNKNOWN' COMMENT '性别 M: 男; F: 女',
+    `avatar`                varchar(512)          DEFAULT NULL COMMENT '头像地址',
+    `nickname`              varchar(64)           DEFAULT NULL COMMENT '昵称',
+    `receive_notification`  tinyint(1) DEFAULT '1' COMMENT '是否接收信息推送(小程序-我的-信息推送)',
+    `user_id`               varchar(64)  NOT NULL COMMENT '用户唯一id',
+    `audit_status`          varchar(255) NOT NULL COMMENT '审核状态',
+    `open_huo_ke_bao`       tinyint(1) DEFAULT '0' COMMENT '是否开启获客宝(有获客宝功能的使用权限才能开启)',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE KEY `idx_unique_email` (`email`) USING BTREE,
+    UNIQUE KEY `idx_unique_phone` (`phone`) USING BTREE,
+    UNIQUE KEY `idx_unique_mini_apps_open_id` (`mini_apps_open_id`),
+    KEY                     `idx_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12474 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='用户表';
+
+INSERT INTO `xinwo_management`.`t_user`(`id`, `create_time`, `update_time`, `status`, `email`, `name`, `org_id`,
+                                        `password`, `phone`, `salt`, `last_login_time`, `user_status`, `company`,
+                                        `certification_id`, `certification_name`, `birthday`, `work_year`,
+                                        `certification_pic_url`, `mini_apps_open_id`, `union_id`, `sex`, `avatar`,
+                                        `nickname`, `receive_notification`, `user_id`, `audit_status`,
+                                        `open_huo_ke_bao`)
+VALUES (12167, '2022-01-06 10:07:50', '2022-05-13 09:31:43', 'ENABLE', NULL, '张张', NULL,
+        'B866EDC2F2EF2E9F26EFC62AF9C7658E', '19927427621', '17621', '2022-04-24 14:53:52', 'NORMAL', NULL, NULL, NULL,
+        NULL, NULL, NULL, NULL, NULL, 'UNKNOWN', NULL, NULL, 1, 'cd1433259ef9452abdd75e142e8865bf', 'NONE', 0);
+INSERT INTO `xinwo_management`.`t_user`(`id`, `create_time`, `update_time`, `status`, `email`, `name`, `org_id`,
+                                        `password`, `phone`, `salt`, `last_login_time`, `user_status`, `company`,
+                                        `certification_id`, `certification_name`, `birthday`, `work_year`,
+                                        `certification_pic_url`, `mini_apps_open_id`, `union_id`, `sex`, `avatar`,
+                                        `nickname`, `receive_notification`, `user_id`, `audit_status`,
+                                        `open_huo_ke_bao`)
+VALUES (12310, '2022-04-19 17:50:39', '2022-05-13 09:31:43', 'ENABLE', 'lujiaohe@ingbaobei.com', '阿娇', 1,
+        '0EAF4448E8DEEC51215AD2308ED5494D', '18620876219', '86524', '2022-05-13 08:52:20', 'SNAIL_INNER_VIP', '蜗牛保险经纪',
+        NULL, NULL, NULL, NULL, NULL, 'ol8oy5O8vXKWTbH6lmXakmEpF0fc', 'oKASduGuCbeAa-ERPXQSYZdVZCxs', 'UNKNOWN',
+        'https://thirdwx.qlogo.cn/mmopen/vi_32/8r9Gr3TXQB9ibXwEJm9icJZ0nkdN98YZZzQg24JicwtDmCoRZiabEZW1vA2O6BYqfxwxPL5y6RsWcFWXGOodtjTrCQ/132',
+        '娇', 1, '1310', 'NONE', 0);
+
