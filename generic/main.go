@@ -1,6 +1,9 @@
 package generic
 
-import "errors"
+import (
+	"errors"
+	"reflect"
+)
 
 func AsParam[T int | float64](i T, j T) T {
 	return i + j
@@ -34,4 +37,15 @@ func IndexOf[T comparable](candidates []T, target T) (error, int) {
 func Slice[T any](nums []T) ([]T, []T) {
 	mid := len(nums) / 2
 	return nums[:mid], nums[mid:]
+}
+
+type Info struct {
+	ID int64
+}
+
+func GetValue() interface{} {
+	info := &Info{ID: 123}
+	refValue := reflect.ValueOf(*info)
+	field := refValue.FieldByName("ID")
+	return field.Interface()
 }

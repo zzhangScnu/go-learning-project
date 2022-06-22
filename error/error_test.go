@@ -23,3 +23,8 @@ func TestDivideByCheck(t *testing.T) {
 	PrintDivideResult(1, 1)
 	PrintDivideResult(1, 0)
 }
+
+func TestErrors(t *testing.T) {
+	fmt.Println(fmtSomeError())
+	fmt.Println(wrapSomeError())
+}

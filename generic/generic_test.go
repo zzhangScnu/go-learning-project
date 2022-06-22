@@ -44,3 +44,7 @@ func TestSlice(t *testing.T) {
 	fmt.Println(nums1)
 	fmt.Println(nums2)
 }
+
+func TestGetValue(t *testing.T) {
+	fmt.Println(GetValue())
+}
