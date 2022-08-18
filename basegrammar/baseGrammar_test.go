@@ -5,6 +5,7 @@ import (
 	_for "github.com/go-learning-project/basegrammar/for"
 	"github.com/go-learning-project/basegrammar/function"
 	_if "github.com/go-learning-project/basegrammar/if"
+	"github.com/go-learning-project/basegrammar/pointer"
 	string2 "github.com/go-learning-project/basegrammar/string"
 	_switch "github.com/go-learning-project/basegrammar/switch"
 	"testing"
@@ -88,4 +89,14 @@ func TestBreak(t *testing.T) {
 
 func TestBreakLoop(t *testing.T) {
 	_for.ForBreakTag()
+}
+
+func TestConvertToPointerMap(t *testing.T) {
+	pointer.ConvertToPointerMap()
+	pointer.ConvertToPointerMap2()
+}
+
+func TestAddress(t *testing.T) {
+	i := 32
+	fmt.Println(&i)
 }
