@@ -81,3 +81,11 @@ func TestString(t *testing.T) {
 	fmt.Println("run Compare...")
 	string2.Compare()
 }
+
+func TestBreak(t *testing.T) {
+	_for.ForBreak()
+}
+
+func TestBreakLoop(t *testing.T) {
+	_for.ForBreakTag()
+}

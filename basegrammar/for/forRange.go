@@ -27,3 +27,28 @@ func RangeAndChange() {
 	}
 	fmt.Println(nums)
 }
+
+func ForBreak() {
+	i := 0
+	for {
+		i++
+		fmt.Println(i)
+		if i == 10 {
+			break
+		}
+	}
+	fmt.Printf("task finished, i = %d", i)
+}
+
+func ForBreakTag() {
+	i := 0
+Loop:
+	for {
+		i++
+		fmt.Println(i)
+		if i == 10 {
+			break Loop
+		}
+	}
+	fmt.Printf("task finished, i = %d", i)
+}
