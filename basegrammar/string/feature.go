@@ -30,17 +30,17 @@ func ConvertToIntByRune() {
 
 // RangeString 每次循环展示【Unicode位码编码后，第一个字节的索引-Unicode位码-位码转换的字符串】
 func RangeString() {
-	for i, v := range str {
-		fmt.Println(i, v, string(v))
+	for i, _ := range str {
+		fmt.Println(i, str[i], string(str[i]))
 	}
 }
 
 // RangeStringRune 每次循环展示【Unicode位码索引-Unicode位码-位码转换的字符串】
-// Rune是Unicode位码的表示，实际上是int32的等价类型
+// Rune是Unicode位码的表示，实际上是int32的等价类型。即四个字节，可以表示Unicode里的一个字符
 func RangeStringRune() {
 	r := []rune(str)
-	for i, v := range r {
-		fmt.Println(i, v, string(v))
+	for i, _ := range r {
+		fmt.Println(i, r[i], string(r[i]))
 	}
 }
 

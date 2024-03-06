@@ -48,3 +48,7 @@ func TestSlice(t *testing.T) {
 func TestGetValue(t *testing.T) {
 	fmt.Println(GetValue())
 }
+
+func TestSetValue(t *testing.T) {
+	fmt.Println(SetValue())
+}

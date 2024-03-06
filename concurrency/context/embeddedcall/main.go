@@ -10,11 +10,18 @@ func main() {
 	ctx, cancelFunc := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancelFunc()
 	go doSomething(ctx)
-	select {
-	case <-ctx.Done():
-		fmt.Println("main function finished job: ", ctx.Err())
-	}
-	time.Sleep(time.Second)
+	go func() {
+		time.Sleep(time.Second * 3)
+		cancelFunc()
+	}()
+	//for {
+	//	select {
+	//	case <-ctx.Done():
+	//		fmt.Println("main function finished job: ", ctx.Err())
+	//		return
+	//	}
+	//}
+	time.Sleep(time.Second * 5)
 }
 
 func doSomething(ctx context.Context) {

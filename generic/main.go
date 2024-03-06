@@ -39,6 +39,10 @@ func Slice[T any](nums []T) ([]T, []T) {
 	return nums[:mid], nums[mid:]
 }
 
+type AnotherInfo struct {
+	Mapping map[int64]int64
+}
+
 type Info struct {
 	ID int64
 }
@@ -48,4 +52,15 @@ func GetValue() interface{} {
 	refValue := reflect.ValueOf(*info)
 	field := refValue.FieldByName("ID")
 	return field.Interface()
+}
+
+func SetValue() *AnotherInfo {
+	aif := &AnotherInfo{}
+	mapping := map[int64]int64{
+		1: 1,
+	}
+	refValue := reflect.ValueOf(*aif)
+	field := refValue.FieldByName("Mapping")
+	field.Set(reflect.ValueOf(mapping))
+	return aif
 }
