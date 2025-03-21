@@ -32,7 +32,7 @@ Loop:
 			break Loop
 		case <-finChan:
 			fmt.Println("task end successfully!")
-			// 如果不加这句break Loop，循环会继续下去，由于已经执行了finChan已经被执行关闭，会一直走到这条分支
+			// 如果不加这句break Loop，循环会继续下去，由于已经执行了finChan已经被执行关闭，会一直走到这条分支且消费到零值
 			break Loop
 		case <-time.After(time.Millisecond * 1_00_00):
 			fmt.Println("times up")

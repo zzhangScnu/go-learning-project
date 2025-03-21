@@ -31,6 +31,7 @@ func RangeStruct() {
 	}
 }
 
+// RangeStructConcurrently arr并发修改问题
 func RangeStructConcurrently() {
 	arr := []example{
 		{num: 1, name: "a"},
@@ -55,10 +56,11 @@ func RangeStructConcurrently() {
 	}
 }
 
+// RangeString 遍历字符
 func RangeString() {
 	for i, c := range "collection" {
 		// c是ASCII码，直接输出会显示数字
-		fmt.Printf("%d, %c \n", i, c)
+		fmt.Printf("%d, %c, %+v \n", i, c, c)
 	}
 }
 

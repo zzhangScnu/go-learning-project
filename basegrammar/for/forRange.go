@@ -28,18 +28,23 @@ func RangeAndChange() {
 	fmt.Println(nums)
 }
 
+// ForBreak break只会跳出当前逻辑块
 func ForBreak() {
-	i := 0
-	for {
-		i++
-		fmt.Println(i)
-		if i == 10 {
-			break
+	for j := 0; j < 10; j++ {
+		i := 0
+		for {
+			i++
+			fmt.Println(i)
+			if i == 10 {
+				break
+			}
 		}
+		fmt.Printf("task %d finished, i = %d", j, i)
 	}
-	fmt.Printf("task finished, i = %d", i)
+	fmt.Printf("task finished")
 }
 
+// ForBreakTag 跳到Loop后，不会再进入Loop下的逻辑块
 func ForBreakTag() {
 	i := 0
 Loop:
@@ -50,5 +55,5 @@ Loop:
 			break Loop
 		}
 	}
-	fmt.Printf("task finished, i = %d", i)
+	// fmt.Printf("task finished, i = %d", i)
 }

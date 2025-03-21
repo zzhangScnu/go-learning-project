@@ -7,6 +7,7 @@ const (
 	num = "123"
 )
 
+// ConvertToIntByForRange rune的特性
 // ConvertToIntByForRange 测试了for-range循环的每一位，都是Unicode位码，只有减去'0'时才能得到数字（int32类型）。循环效果跟for-i以及rune[]是一样的。
 func ConvertToIntByForRange() {
 	for i, v := range num {
@@ -30,7 +31,15 @@ func ConvertToIntByRune() {
 
 // RangeString 每次循环展示【Unicode位码编码后，第一个字节的索引-Unicode位码-位码转换的字符串】
 func RangeString() {
-	for i, _ := range str {
+	for i, v := range str { // 按rune形式遍历
+		fmt.Println(i, v, string(v), str[i], string(str[i])) // str[i]：单个字节
+	}
+	fmt.Println("===================")
+	for i, _ := range str { // 按rune形式遍历
+		fmt.Println(i, str[i], string(str[i])) // str[i]：单个字节
+	}
+	fmt.Println("===================")
+	for i := 0; i < len(str); i++ { // 按Byte形式遍历
 		fmt.Println(i, str[i], string(str[i]))
 	}
 }
@@ -40,7 +49,7 @@ func RangeString() {
 func RangeStringRune() {
 	r := []rune(str)
 	for i, _ := range r {
-		fmt.Println(i, r[i], string(r[i]))
+		fmt.Println(i, r[i], string(r[i])) // 四个字节
 	}
 }
 
